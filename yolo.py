@@ -155,12 +155,14 @@ class YOLO(object):
             for i in range(thickness):
                 draw.rectangle(
                     [left + i, top + i, right - i, bottom - i],
-                    outline=self.colors[c])
+                    outline=(0, 0, 255))
             draw.rectangle(
                 [tuple(text_origin), tuple(text_origin + label_size)],
-                fill=self.colors[c])
-            draw.text(text_origin, label, fill=(0, 0, 0), font=font)
+                fill=(0, 0, 255))
+            draw.text(text_origin, label, fill=(255, 255, 255), font=font)
             del draw
+
+        image.save('result.png')
 
         end = timer()
         print(end - start)
